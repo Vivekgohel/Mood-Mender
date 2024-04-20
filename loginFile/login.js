@@ -65,7 +65,6 @@ app.post('/login', (req, res) => {
 
 
 // Route to handle signup
-// Route to handle signup
 app.post('/signup', (req, res) => {
   // Fetch user data from the request body
   const { username, email, password } = req.body;
@@ -89,7 +88,7 @@ app.post('/signup', (req, res) => {
           res.status(500).send('Internal server error');
           return;
         }
-        res.status(200).send('Signup successful. Please login.');
+        res.status(200).sendFile(__dirname + '/home.html');
       });
     }
   });
