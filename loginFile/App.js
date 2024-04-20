@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const session = require('express-session');
+const secretKey = require('crypto').randomBytes(32).toString('hex');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,14 +31,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
-// Serve the HTML file with the login and signup forms
+// Initialize express-session middleware
+app.use(session({
+  secret: secretKey, // Set your own secret key
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Serve the HTML file without login and signup forms
 app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/home.html');
+});
+
+// Serve the HTML file with the signup form
+app.get('/signup', (req, res) => {
   res.sendFile(__dirname + '/loginValidate.html');
 });
 
-
-// Route to handle login
-// Route to handle login
+// After login, redirect to the dashboard
 app.post('/login', (req, res) => {
   // Fetch user data from the request body
   const { email, password } = req.body;
@@ -58,11 +70,10 @@ app.post('/login', (req, res) => {
     if (results.length > 0) {
       res.redirect('/dashboard');
     } else {
-      res.send('Invalid email or password');
+      res.send('<script>alert("Invalid email and password."); window.location.href = "/";</script>');
     }
   });
 });
-
 
 // Route to handle signup
 app.post('/signup', (req, res) => {
@@ -88,7 +99,8 @@ app.post('/signup', (req, res) => {
           res.status(500).send('Internal server error');
           return;
         }
-        res.status(200).sendFile(__dirname + '/home.html');
+        // Send a popup message
+        res.send('<script>alert("Signup successful! You can now login."); window.location.href = "/";</script>');
       });
     }
   });
@@ -97,7 +109,21 @@ app.post('/signup', (req, res) => {
 
 // Route to handle dashboard
 app.get('/dashboard', (req, res) => {
-  res.sendFile(__dirname + '/home.html');
+  res.sendFile(__dirname + '/dashboard.html');
+});
+
+// Route to handle logout
+app.get('/logout', (req, res) => {
+  // Destroy the session
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error logging out:', err);
+      res.status(500).send('Internal server error');
+      return;
+    }
+    // Redirect to the home page after logout
+    res.redirect('/');
+  });
 });
 
 // Start the server
