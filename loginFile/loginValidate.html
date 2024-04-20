@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-section {
+            height: 400px; 
+        }
+        .custom-card {
+            width: 80%;
+        }
+        input[type="text"],
+        input[type="password"] {
+            height: 50px;
+        }
+        form {
+            height: 87%;
+        }
+        .btn{
+            position: relative;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Your Project Name</a>
+    </nav>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login-section">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup-section">Sign Up</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content mt-3">
+                            <div class="tab-pane fade show active custom-section" id="login-section">
+                                <h2 class="card-title text-center">Login</h2>
+                                <!-- login form -->
+                                <form action="/signup" method="POST">
+                                    <div class="form-group">
+                                        <label for="login-username">Username:</label>
+                                        <input type="text" id="login-username" class="form-control" name="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-email">Email:</label>
+                                        <input type="text" id="login-email" class="form-control" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-password">Password:</label>
+                                        <input type="password" id="login-password" class="form-control" name="password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Login</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade custom-section" id="signup-section">
+                                <h2 class="card-title text-center">Sign Up</h2>
+                                <!-- signup form  -->
+                                <form action="/signup" method="POST">
+                                    <div class="form-group">
+                                        <label for="signup-username">Username:</label>
+                                        <input type="text" id="signup-username" class="form-control" name="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-email">Email:</label>
+                                        <input type="text" id="login-email" class="form-control" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="signup-password">Password:</label>
+                                        <input type="password" id="signup-password" class="form-control" name="password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // to toggle between login and sign up sections
+        document.getElementById('login-tab').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('login-section').classList.add('show', 'active');
+            document.getElementById('signup-section').classList.remove('show', 'active');
+        });
+
+        document.getElementById('signup-tab').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('signup-section').classList.add('show', 'active');
+            document.getElementById('login-section').classList.remove('show', 'active');
+        });
+    </script>
+</body>
+</html>
