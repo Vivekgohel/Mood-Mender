@@ -1,25 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mood Mender</title>
-</head>
-<body>
-    <div>
-        <section>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#">LOGO</a></li>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT US</a></li>
-                    <li><a href="#">SIGN UP</a></li>
-                    <li><a href="#">LOGIN</a></li>
-                </ul>
-            </nav>
-        </section>
-    </div>
-   <section class="main"></section>
-   <section class="footer"></section>
-</body>
+    <style>
+      
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #2d67f9;
+    --primary-dark: #1F252E;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+
+}
+
+/* Genral */
+.container {
+    padding: 0 8.4rem;
+    border-radius: 2px;
+}
+
+
+/* Nav */
+header {
+    box-shadow: 0 4px 17px rgb(165, 165, 165);
+    background: #fff;
+    position: sticky;
+    top: 0;
+}
+
+.nav_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+ul {
+    display: flex;
+    list-style-type: none;
+}
+
+li a {
+    text-decoration: none;
+    padding: 0 1rem;
+    color: black;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.active,li a:hover {
+    color: var(--primary-color);
+}
+
+/* Nav End */
+
+/* Section 1 */ 
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.main h3 {
+    font-size: 1.5rem;
+    
+}
+
+.main p {
+    line-height: 1.7;
+    font-size: 1.5rem;
+    text-indent: 2cm;
+}
+
+
+.myimg {
+    width: 11rem;
+    height: auto;
+    margin-left: 20px;
+    position: relative;
+    z-index: -1;
+}
+.myimg img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 6px;
+}
+
+.myimg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    left: 60%;
+    top: -10px;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+
+/* Section 1 End */
+
+hr{
+    margin: 50px 0 20px;
+    
+}
+
+
+/* Section Footer Start */
+.footer{
+    width: 100%;
+    height: 100px;
+    color: #fff;
+    background-color: #1F252E;
+}
+.footer h1{
+    padding: 10px;
+}
+.footer a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Section Footer End */
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 4rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1.6rem;
+    }
+    .myimg {
+        width: 100px;
+        display: flex;
+        margin-right:80px;
+    }
+}
+
+@media screen and (max-width:600px) {
+
+    header {
+        height: 5rem;
+    }
+
+    ul {
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        text-align: center;
+        top: 6.4rem;
+    }
+
+    .main {
+        margin-top: 7rem;
+    }
+    .myimg {
+        width: 100px;
+        display: flex;
+        margin-right:50px;
+    }
+
+}
+    </style>
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="nav_bar">
+        <div class="logo">Mood Mender</div>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">about Us</a></li>
+          <li><a href="/signup">SignUp</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="container" id="contact">
+      <div class="main">
+        <div class="detail">
+          <h3>Welcome to Mood-Mender,</h3>
+          <p>
+                  Are you struggling with depression? You're not alone.Depression is
+            more than just feeling sad. At Mood-Mender, we understand the
+            challenges that come with this often misunderstood condition. Our
+            mission is to provide you with the information, resources, and
+            support you need to navigate the journey toward mental wellness.
+          </p>
+        </div>
+        <div class="img-section">
+          <div class="myimg">
+            <img src="/img/myimg.png" alt="Image" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr />
+
+    <section class="container footer">
+      <h1>Contact Us</h1>
+      <a href="mailto:moodmender@gmail.com">Mail : moodmender@gmail.com</a>
+    </section>
+  </body>
 </html>
