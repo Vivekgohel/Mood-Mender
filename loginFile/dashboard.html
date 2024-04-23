@@ -1,14 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dashboard - Depression Support</title>
+  <style>
+    
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0;
+    background-color: #f0f0f0; /* Light gray background */
+    /* background-image: url("depression.jpg"); */
+    height: auto;
+    width: auto;
+    background-repeat: no-repeat;
+    background-position: end;
+    background-size: cover;
+  }
+  h1{
+    display: flex;
+    height: 25px;
+    width: auto;
+    font-family: Arial, sans-serif;
+  }
+  header {
+    background-color: #347aa8; /* Blue header */
+    color: #fff; /* White text */
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+  }
+  nav ul {
+    list-style-type: none;
+    margin: 5px;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-end; 
+  }
+
+  nav ul li a {
+    margin: 6px;
+    display: block;
+    padding: 8px; /* Adjust padding as needed */
+    text-decoration: none;
+    width: 80px;
+    color: #333; /* Text color */
+    background-color: #f0f0f0; /* Background color */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow:#ddd;
+    transition: background-color 0.3s ease; /* Smooth transition */
+
+  }
+
+  nav ul li a:hover {
+    background-color: #73e3f7; /* Background color on hover */
+  }
+  
+  main {
+    padding: 10px;
+  }
+  
+  section {
+    margin-bottom: 50px;
+    padding: 5px;
+    background-color: #faf4f4; /* White section background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(5, 41, 241, 0.1); /* Shadow effect */
+  }
+  
+ 
+  img{
+    height: 300px;
+    width: 200px;
+    margin-left: 10%;
+    border-radius: 20px ;
+  }
+.container {
+  display: flex;
+  margin-left:5%;
+  letter-spacing:1px;
+  margin-right: 0%;
+}
+
+.text {
+  flex: 5; /* Take up remaining space */
+  margin-right: 15px;
+}
+
+.photos {
+  margin-left: 25%; /* Add some space between text and photos */
+  margin-right: 10%;
+}
+
+.photos img {
+  display: block;
+  padding-top: 20px;
+  width: 500px; /* Adjust width as needed */
+  height: 400px; /* Maintain aspect ratio */
+  margin-bottom: 12px; /* Add spacing between photos */
+}
+.btn {
+  width: 9%;
+  height: 40px;
+  position: absolute;
+  border-bottom-left-radius: 2%;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 25%;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0774e9; /* Button background color on hover */
+}
+  </style>
 </head>
 <body>
-    <h1>Welcome to Dashboard</h1>
-    <div id="user-details"></div>
-    <a href="/logout">Logout</a>
+  
+  <header>
+    <h1>Mood Mender</h1>
     
+    <nav>
+        <ul>
+            
+            <li><a href="/about">About Us</a></li>  
+            <li><a href="/service">Service</a></li> 
+            <li><a href="/support">Support</a></li>            
+            <li><a href="/logout">Logout</a></li> 
+           
+        </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="text">
+      <h2><span>Welcome,</span></h2><br>
+      <p>Are you struggling with depression? You're not alone.Depression is more than just feeling sad.  At Mood-Mender, we understand the challenges that come with this often misunderstood condition. Our mission is to provide you with the information, resources, and support you need to navigate the journey toward mental wellness.</p>
+    </div>
+    <div class="photos">
+      <img src="dep-removebg-preview.png" alt="Photo 1">
+    </div>
+    <button class="btn">Get Started</button>
+  </div>
+  
+  <!-- <footer>
+    <p>2024 Depression Support</p>
+  </footer> -->
+
 </body>
 </html>
